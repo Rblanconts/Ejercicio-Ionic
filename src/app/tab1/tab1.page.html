@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Cocteles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<!-- Contenido principal de la pagina -->
+<ion-content>
+
+  <!-- Aqui metemos un progress bar en caso de que esten cargando los datos de los cocteles,
+  En caso de que cocteles sea "null" o "undefined" se muestra el progress bar -->
+  <ion-progress-bar *ngIf="!cocteles"></ion-progress-bar>
+  <ion-list>
+
+    <!-- Lista de los cocteles obtenido por peticion REST -->
+    <ion-card *ngFor="let coctel of cocteles">
+      <img [src]="coctel.strDrinkThumb" />
+      <ion-card-header>
+        <ion-card-title>{{coctel.strDrink}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{coctel.strInstructionsES.substring(0,100)}}...
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button (click)="addFavorito(coctel)">
+              <ion-icon color="red" name="heart-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar> 
+      
+      </ion-card-content>
+
+    </ion-card>
+  </ion-list>
+</ion-content>

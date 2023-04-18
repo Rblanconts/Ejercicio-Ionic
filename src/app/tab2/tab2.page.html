@@ -1,0 +1,110 @@
+<!-- Menu lateral -->
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu Lateral</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>ES</ion-item>
+      <ion-item>EN</ion-item>
+      <ion-item (click)="volverLogin()">Salir</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div id="main-content">
+<!-- Header principal -->
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Perfil</ion-title>
+
+    <!-- Boton del menu -->
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>  
+</ion-header>
+</div>
+
+  
+
+
+
+<br>
+
+<ion-content>
+
+  <form (ngSubmit)="comprobarDatos()">
+  
+  <!-- Avatar // PENDIENTE MIRAR COMO CREAR BOTON QUE ABRA GALERIA -->
+  <ion-avatar style="margin: 0 auto;">
+    <img src="assets/avatar.jpg" />
+  </ion-avatar>
+
+
+
+  <br><br>
+
+  
+<ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+
+
+  <!-- Usuario -->
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input placeholder="Solo puede contener letras y numeros" type="text" [(ngModel)]="usuario" name="usuario" pattern="[a-zA-Z0-9]*"></ion-input>
+  </ion-item>
+
+  <!-- Email -->
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input placeholder="Debe contener formato @" type="email" [(ngModel)]="email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></ion-input>
+  </ion-item>
+
+  <!-- Contraseña -->
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" [(ngModel)]="password" name="password" minlength="4" maxlength="20" ></ion-input>
+  </ion-item>
+
+  <!-- Telefono -->
+  <ion-item>
+    <ion-label position="floating">Telefono</ion-label>
+    <ion-input placeholder="Maximo 9 digitos" type="tel" [(ngModel)]="telefono" name="telefono"  pattern="[0-9]{1,9}" maxlength="9"></ion-input>
+  </ion-item>
+
+  <!-- Nombre -->
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input  placeholder="Minimo 3 caracteres" type="text" [(ngModel)]="editNombre" name="nombre"  pattern="[a-zA-Z ]{3,}" maxlength="15"></ion-input>
+  </ion-item>
+
+  <!-- Apellido -->
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input placeholder="Minimo 4 caracteres" type="text" [(ngModel)]="apellido" name="apellido"  pattern="[a-zA-Z ]{3,}" maxlength="30"></ion-input>
+  </ion-item>
+  <br>
+
+  <!-- Boton Guardar -->
+  <div class="ion-text-center">
+    <ion-button type="submit" shape="round">Guardar</ion-button>
+  </div>
+
+</form>
+</ion-content>
+
+
+
+
+
+
+
+
