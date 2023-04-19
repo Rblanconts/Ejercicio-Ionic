@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Lista de Cocteles</ion-title>
+    </ion-buttons> -->
+    <ion-searchbar color="primary" placeholder="Busqueda" (ionInput)="buscadorCocteles($event)"></ion-searchbar>
+
   </ion-toolbar>
 </ion-header>
 
@@ -28,8 +29,8 @@
         {{coctel.strInstructionsES.substring(0,100)}}...
         <ion-toolbar>
           <ion-buttons slot="end">
-            <ion-button (click)="addFavorito(coctel)">
-              <ion-icon color="red" name="heart-outline"></ion-icon>
+            <ion-button color="danger"  (click)="addFavorito(coctel)">
+              <ion-icon  name="heart-outline"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-toolbar> 

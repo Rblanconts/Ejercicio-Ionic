@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,6 +25,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    HttpClientModule
   ],
     
   providers: [

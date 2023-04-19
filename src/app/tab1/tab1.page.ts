@@ -10,6 +10,8 @@ export class Tab1Page implements OnInit {
 
   //Hacemos un array de los cocktails
   cocteles: any[];
+  coctelesOriginales: any[];
+  
   favoritos: any[];
 
   //Añadimos al constructor el HttpClient para poder hacer la peticion REST
@@ -19,9 +21,20 @@ export class Tab1Page implements OnInit {
     this.http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a')
         .subscribe((data: any) => {
           this.cocteles = data.drinks;
+          this.coctelesOriginales = data.drinks;
         });
   }
 
+  //Buscador en el Tab1 (Sirve para buscar por nombre la bebida)
+  buscadorCocteles(event){
+    const buscar = event.target.value.toLowerCase();
+    this.cocteles = this.coctelesOriginales.filter(coctel =>{
+      return coctel.strDrink.toLowerCase().includes(buscar);
+    });
+
+  }
+
+  //Funcion que actualiza la lista de cocteles en persistencia
   actualizarLista(){
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     this.favoritos = favoritos;
